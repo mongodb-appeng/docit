@@ -2,10 +2,6 @@
 
 A simple application which demonstrates how MongoDB Atlas integrates with AWS Services
 
-## Overview 
-
-### scenario
-
 ## Project setup
 ```
 npm install

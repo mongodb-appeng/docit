@@ -9,6 +9,7 @@ import {
     REMOVE_PROJECT_UNINTERESTING_ID,
     RESET_PROJECT_INTERESTING_ID,
     RESET_PROJECT_SEARCH_TERM,
+    RESET_PROJECT_SEARCH_TERM_CHANGED,
     RESET_PROJECT_UNINTERESTING_ID,
     TOGGLE_PROJECT_INSPECTION,
     SET_PROJECT_RESULTS,
@@ -28,6 +29,7 @@ import {StitchServices} from '@/plugins/StitchPlugin'
 const state = {
     currentProject: null,
     searchTerms: [],
+    searchTermsChanged: false,
     interestingIds: [],
     uninterestingIds: [],
     inspectData: false,
@@ -44,6 +46,9 @@ const actions = {
     },
     incrementResultIdx({commit}){
         commit(INCREMENT_RESULT_IDX)
+    },
+    resetTermsChanged({commit}){
+        commit(RESET_PROJECT_SEARCH_TERM_CHANGED)
     },
     setSearchResults({commit}, payload){
         commit(SET_PROJECT_RESULTS, payload)
@@ -110,6 +115,7 @@ const mutations = {
         const term = payload.term
         if(state.searchTerms.indexOf(term) === -1){
             state.searchTerms.push(term)
+            state.searchTermsChanged = true
         }
     },
     [ADD_PROJECT_UNINTERESTING_ID](state, payload) {
@@ -121,6 +127,7 @@ const mutations = {
     [CLEAR_PROJECT_DATA](state){
         state.currentProject = null
         state.searchTerms = []
+        state.searchTermsChanged = false
         state.interestingIds = []
         state.uninterestingIds = []
         state.inspectData = false
@@ -148,6 +155,7 @@ const mutations = {
         const idx = state.searchTerms.indexOf(term)
         if(idx !== -1){
             state.searchTerms.splice(idx, 1)
+            state.searchTermsChanged = true
         }
     },
     [REMOVE_PROJECT_UNINTERESTING_ID](state, payload){
@@ -162,6 +170,9 @@ const mutations = {
     },
     [RESET_PROJECT_SEARCH_TERM](state){
         state.searchTerms = []
+    },
+    [RESET_PROJECT_SEARCH_TERM_CHANGED](state){
+        state.searchTermsChanged = false
     },
     [RESET_PROJECT_UNINTERESTING_ID](state){
         state.uninterestingIds = []

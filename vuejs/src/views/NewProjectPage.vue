@@ -94,6 +94,7 @@
         computed: {
             ...mapState({
                 searchTerms: state => state.projects.searchTerms,
+                searchTermsChanged: state => state.projects.searchTermsChanged,
                 inspectData: state => state.projects.inspectData,
                 interesting: state => state.projects.interestingIds.length,
                 uninteresting: state => state.projects.uninterestingIds.length,
@@ -118,25 +119,30 @@
              *  $searchBeta must be first
              */
             runSearch(){
-                StitchServices.client.callFunction(
-                    'fts',
-                    [{
-                        q: this.searchTerms,
-                        p: [
-                            'analysis.comprehend.keyPhrases.text',
-                            'analysis.comprehend.entities.text',
-                            'analysis.comprehend.entities.type',
-                            'content'
-                        ],
-                        l: 50,
-                        project: true
-                    }]
-                ).then(result => {
-                    this.$store.dispatch('projects/setSearchResults', {results: result.result})
-                    this.totalDocs = Math.floor(Math.random() * (500000 - 200000)) + 200000
-                    this.$store.dispatch('projects/updateCurrentResult')
+                if(this.searchTermsChanged) {
+                    StitchServices.client.callFunction(
+                        'fts',
+                        [{
+                            q: this.searchTerms,
+                            p: [
+                                'analysis.comprehend.keyPhrases.text',
+                                'analysis.comprehend.entities.text',
+                                'analysis.comprehend.entities.type',
+                                'content'
+                            ],
+                            l: 50,
+                            project: true
+                        }]
+                    ).then(result => {
+                        this.$store.dispatch('projects/setSearchResults', {results: result.result})
+                        this.totalDocs = Math.floor(Math.random() * (500000 - 200000)) + 200000
+                        this.$store.dispatch('projects/updateCurrentResult')
+                        this.$store.dispatch('projects/toggleInspection')
+                        this.$store.dispatch('projects/resetTermsChanged')
+                    })
+                } else {
                     this.$store.dispatch('projects/toggleInspection')
-                })
+                }
             },
             toggleSearch(){
                 this.$store.dispatch('projects/toggleInspection')

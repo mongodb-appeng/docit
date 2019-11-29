@@ -22,12 +22,13 @@
                 <v-row v-for="(result, i) in this.results" :key="i" dense>
                     <v-card outlined class="mx-auto" max-width="1000" @click.stop="openEmail = true">
                             <div class="d-flex">
-                                <v-avatar class="ma-2" size="100" tile>
+                                <v-avatar class="ma-2" size="150" tile>
                                     <v-img src="@/assets/email.svg"></v-img>
                                 </v-avatar>
                                 <v-row>
-                                <v-card-title class="overflow-auto headline">{{result.name}}</v-card-title>
-                                <v-card-subtitle>{{result.author}}</v-card-subtitle>
+                                    <div class="overline ma-2">tag: {{result.tag}}</div>
+                                    <v-card-title class="headline">{{result.name}}</v-card-title>
+                                    <v-card-subtitle>author: {{result.author}}</v-card-subtitle>
                                 </v-row>
                                 <v-card-text class="text-truncate">{{result.emailData.body}}</v-card-text>
                                 <v-avatar class="ma-2 progress" tile size="100">
@@ -193,6 +194,28 @@
                         project: false
                     }]
                 ).then(result => {
+                    let i = 0;
+                    let j = 0;
+                    /*
+                     * tag emails which were used during training
+                     */
+                    for(i = 0; i < result.result.length; i++){
+                        result.result[i].tag = 'none'
+                        let t = '' + result.result[i]._id
+                        for(j = 0; j < this.project.interestingIds.length; j++){
+                            let s = '' + this.project.interestingIds[j]
+                            if(t === s){
+                                result.result[i].tag = 'interesting'
+                            }
+                        }
+
+                        for(j = 0; j < this.project.uninterestingIds.length; j++){
+                            let s = '' + this.project.uninterestingIds[j]
+                            if(t === s){
+                                result.result[i].tag = 'uninteresting'
+                            }
+                        }
+                    }
                     this.results = result.result
                 })
             }
