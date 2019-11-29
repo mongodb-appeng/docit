@@ -1,0 +1,2 @@
+export const CLEAR_CASE_DATA = 'CLEAR_CASE_DATA'
+export const SET_CASE_DATA = 'SET_CASE_DATA'

@@ -1,0 +1,9 @@
+{
+    "name": "KeyPhrasesViewBuilder",
+    "type": "SCHEDULED",
+    "config": {
+        "schedule": "*/10 * * * *"
+    },
+    "function_name": "KeyPhrasesViewBuilder",
+    "disabled": true
+}

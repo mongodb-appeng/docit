@@ -1,0 +1,18 @@
+{
+    "database": "docit",
+    "collection": "users",
+    "roles": [
+        {
+            "name": "owner",
+            "apply_when": {
+                "uid": "%%user.id"
+            },
+            "read": true,
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "additional_fields": {}
+        }
+    ],
+    "schema": {}
+}

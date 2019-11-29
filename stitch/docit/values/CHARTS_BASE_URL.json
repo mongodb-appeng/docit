@@ -1,0 +1,5 @@
+{
+    "name": "CHARTS_BASE_URL",
+    "value": "[YOUR_VALUE_HERE]",
+    "from_secret": false
+}

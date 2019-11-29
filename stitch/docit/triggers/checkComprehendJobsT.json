@@ -1,0 +1,9 @@
+{
+    "name": "checkComprehendJobsT",
+    "type": "SCHEDULED",
+    "config": {
+        "schedule": "*/20 * * * *"
+    },
+    "function_name": "checkComprehendJobsF",
+    "disabled": false
+}

@@ -1,0 +1,6 @@
+{
+    "name": "textract",
+    "actions": [
+        "textract:*"
+    ]
+}

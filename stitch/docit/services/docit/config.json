@@ -1,0 +1,11 @@
+{
+    "name": "docit",
+    "type": "aws",
+    "config": {
+        "accessKeyId": "[YOUR_VALUE_HERE]"
+    },
+    "secret_config": {
+        "secretAccessKey": "awsSecret"
+    },
+    "version": 1
+}

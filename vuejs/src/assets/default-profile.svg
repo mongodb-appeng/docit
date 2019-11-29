@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="33px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 59.1 (101010) - https://sketch.com -->
+    <title>000B93E6-DCA4-4A4C-9AD6-AB0F43F63209</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="14.5" cy="14.5" r="14.5"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Login" transform="translate(-1184.000000, -19.000000)">
+            <g id="nAV-nAV-Logged-Out">
+                <g id="Group-6-Copy-2" transform="translate(1184.000000, 19.000000)">
+                    <circle id="Oval" fill="#B8C4C2" cx="16.5" cy="16.5" r="16.5"></circle>
+                    <g id="Oval-Copy" transform="translate(2.000000, 2.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#B8C4C2" xlink:href="#path-1"></use>
+                        <g id="Group-5" mask="url(#mask-2)" fill="#FFFFFF">
+                            <g transform="translate(4.833333, 4.229167)">
+                                <path d="M19.3333333,25.9791667 C19.3333333,20.6404141 15.0054192,16.3125 9.66666667,16.3125 C4.32791409,16.3125 0,20.6404141 0,25.9791667 C0,25.9791667 19.3333333,25.9791667 19.3333333,25.9791667 Z" id="Oval-Copy"></path>
+                                <circle id="Oval" cx="9.36458333" cy="6.94791667" r="6.94791667"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

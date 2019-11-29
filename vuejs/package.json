@@ -1,0 +1,90 @@
+{
+  "name": "docit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "a simple application integrating MongoDB Atlas, Stitch, and AWS Services",
+  "author": "appeng@mongodb.com",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@leafygreen-ui/palette": "^1.1.0",
+    "babel-loader": "^8.0.6",
+    "bson": "^4.0.2",
+    "cache-loader": "^4.1.0",
+    "core-js": "^3.3.2",
+    "mongodb-stitch-browser-sdk": "^4.7.1",
+    "thread-loader": "^2.1.3",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.2",
+    "vue-router": "^3.1.3",
+    "vue-spinner": "^1.0.3",
+    "vuejs-progress-bar": "^1.1.1",
+    "vuetify": "^2.1.0",
+    "vuex": "^3.1.1",
+    "vuex-persistedstate": "^2.6.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "^2.0.2",
+    "vue-template-compiler": "^2.6.10",
+    "vuetify-loader": "^1.3.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "contributors": [
+    {"name": "Andrew Morgan", "email":  "andrew.morgan@mongodb.com"},
+    {"name": "Avery Rosen", "email":  "avery.rosen@mongodb.com"},
+    {"name": "Dave McCarter", "email":  "dave.mccarter@mongodb.com"},
+    {"name": "Diana Esteves", "email":  "diana.esteves@mongodb.com"},
+    {"name": "Mike Waltzer", "email":  "mike.waltzer@mongodb.com"},
+    {"name": "Ralph Capasso", "email":  "ralph.capasso@mongodb.com"},
+    {"name": "Shawn McCarthy", "email":  "shawn.mccarthy@mongodb.com"}
+  ],
+  "keywords": [
+    "mongodb",
+    "atlas",
+    "stitch",
+    "vue.js",
+    "AWS",
+    "Textract",
+    "Comprehend",
+    "S3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawnbmccarthy/docit"
+  }
+}

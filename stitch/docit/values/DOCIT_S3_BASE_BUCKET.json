@@ -1,0 +1,5 @@
+{
+    "name": "DOCIT_S3_BASE_BUCKET",
+    "value": "[YOUR_VALUE_HERE]",
+    "from_secret": false
+}

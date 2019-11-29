@@ -1,0 +1,9 @@
+{
+    "name": "SyntaxTokensViewBuilder",
+    "type": "SCHEDULED",
+    "config": {
+        "schedule": "*/10 * * * *"
+    },
+    "function_name": "SyntaxTokensViewBuilder",
+    "disabled": true
+}

@@ -1,0 +1,5 @@
+{
+    "name": "EMBEDDING_SIGNING_KEY",
+    "value": "chartsSigningKey",
+    "from_secret": true
+}

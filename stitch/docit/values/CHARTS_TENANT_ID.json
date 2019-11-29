@@ -1,0 +1,5 @@
+{
+    "name": "CHARTS_TENANT_ID",
+    "value": "[YOUR_VALUE_HERE]",
+    "from_secret": false
+}
