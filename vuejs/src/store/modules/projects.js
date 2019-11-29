@@ -1,8 +1,3 @@
-/* eslint-disable no-console */
-
-/*
- * TODO: capture all metadata for classifier to be saved to the database
- */
 import {
     ADD_PROJECT_INTERESTING_ID,
     ADD_PROJECT_SEARCH_TERM,
@@ -41,8 +36,7 @@ const state = {
     searchResultIdx: -1
 }
 
-const getters = {
-}
+const getters = {}
 
 const actions = {
     clearProject({commit}){
@@ -71,8 +65,6 @@ const actions = {
         }
     },
     updateInterestingIds({commit}, payload){
-        console.log('+++updateIteresting')
-        console.log(payload)
         switch (payload.action) {
             case 'ADD':
                 commit(ADD_PROJECT_INTERESTING_ID, payload)
@@ -86,8 +78,6 @@ const actions = {
         }
     },
     updateUninterestingIds({commit}, payload){
-        console.log('!!!!updateUniteresting')
-        console.log(payload)
         switch (payload.action) {
             case 'ADD':
                 commit(ADD_PROJECT_UNINTERESTING_ID, payload)
@@ -101,7 +91,6 @@ const actions = {
         }
     },
     updateCurrentResult({commit, state}){
-        console.log(state.searchResultIdx)
         StitchServices.findOneEmail(state.searchResultIds[state.searchResultIdx])
             .then(doc => {
                 commit(UPDATE_CURRENT_RESULT, {result: doc})

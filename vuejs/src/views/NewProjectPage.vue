@@ -142,7 +142,6 @@
                 this.$store.dispatch('projects/toggleInspection')
             },
             setupClassifier(){
-                /* eslint-disable no-console */
                 const coll = StitchServices.getProjectsCollection()
                 let name = 'default'
                 if(this.projectName !== ''){

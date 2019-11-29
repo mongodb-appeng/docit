@@ -51,9 +51,6 @@ const actions = {
                             }
                         )
                         commit(`status/${CLEAR_ERROR_MESSAGE}`, null, {root: true})
-                        /*
-                         * TODO: is there a better way?
-                         */
                         router.push(d.homepage)
                     }).catch(error => {
                         commit(

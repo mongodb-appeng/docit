@@ -3,7 +3,7 @@
         <v-alert v-if="inError" type="error">{{msg}}</v-alert>
         <div class="hero-body">
             <div class="login-container">
-                <img src="@/assets/logo-icon.svg"/>
+                <img src="@/assets/logo-icon.svg" alt="docit"/>
                 <h1 class="form-h1">Welcome to Docit.</h1>
                 <p class="form-p">Sign in to Continue</p>
                 <form id="login" @submit.prevent="doAuth">
@@ -36,7 +36,6 @@
                 disabled: false
             }
         },
-        /* eslint-disable no-console */
         methods: {
             doAuth() {
                 const {username, password} = this;

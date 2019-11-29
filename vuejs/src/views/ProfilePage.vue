@@ -7,6 +7,9 @@
 </template>
 
 <script>
+    /*
+     * TODO: update profile page
+     */
     export default {
         name: 'ProfilePage'
     }

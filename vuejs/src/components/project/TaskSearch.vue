@@ -81,10 +81,8 @@
                     ).then(results => {
                         this.loading = false;
                         this.results = results.result
-                    }).catch((err) => {
-                            /* todo: fill in error here */
-                        /* eslint-disable no-console */
-                        console.log(err);
+                    }).catch(() => {
+                        /* todo: fill in error here */
                     })
                 }
             }

@@ -1,7 +1,6 @@
-/* eslint-disable no-console */
 import { RemoteMongoClient, Stitch, UserPasswordCredential } from 'mongodb-stitch-browser-sdk'
 import config from '@/config'
-import { ObjectId } from "bson";
+import { ObjectId } from 'bson'
 
 const client = Stitch.hasAppClient(config.stitchAppId)
     ? Stitch.getAppClient(config.stitchAppId)
@@ -26,9 +25,7 @@ const getDataCountsCollection = () => { return db.collection('dataCounts') }
 
 const findOneEmail = async (id) => {
     const docColl = getDocumentsCollection()
-    const doc = await docColl.findOne({_id: getObjectId(id._id)})
-    console.log("id: ", id._id, "subject: ", doc.emailData.subject)
-    return doc
+    return await docColl.findOne({_id: getObjectId(id._id)})
 }
 
 export const StitchServices = {

@@ -93,9 +93,6 @@ const router = new Router({
     ]
 })
 
-/*
- * This sets an error which will alert on the screen eventually
- */
 router.onError(e => {
     store.dispatch('setErrorMessage', {msg: `a router error has occorred(${e})`})
 })
