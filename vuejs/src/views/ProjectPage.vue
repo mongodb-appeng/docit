@@ -59,7 +59,7 @@
                     <v-container>
                         <p/>
                         <div v-if="this.showEmail">
-                            <v-btn large min-width="245" @click="this.showSearch">Close Preview</v-btn>
+                            <v-btn class="preview-btn" large depressed color="#13AA52" min-width="245" @click="this.showSearch">Close Preview</v-btn>
                         </div>
                         <div v-else>
                             <v-btn large min-width="245" disabled>Close Preview</v-btn>
@@ -160,11 +160,16 @@
 </script>
 
 <style scoped lang="less">
- .progress {
-     padding-top: 15px;
-     align-content: flex-end;
- }
+    .progress {
+        padding-top: 15px;
+        align-content: flex-end;
+    }
+
     .status-header {
         padding-bottom: 17px;
+    }
+
+    .preview-btn {
+        color: white;
     }
 </style>
