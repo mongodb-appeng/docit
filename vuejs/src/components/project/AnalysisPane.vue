@@ -1,6 +1,14 @@
 <template>
-    <v-list v-if="this.currentResult.length > 0" width="300" dense max-height="250" class="overflow-y-auto">
-        <v-subheader class="result-title">{{title}}</v-subheader>
+    <v-list v-if="this.currentAnalysis.length > 0" max-width="400" dense max-height="250" class="overflow-y-auto">
+        <v-list-item class="result-list" dense>
+            <v-list-item-content>
+                <v-subheader align="left" class="result-header">{{title}}</v-subheader>
+            </v-list-item-content>
+
+            <v-list-item-content>
+                <v-subheader align="right" class="result-header">Score</v-subheader>
+            </v-list-item-content>
+        </v-list-item>
         <v-list-item class="result-list" dense v-for="(k, i) in this.currentAnalysis" :key="i">
             <v-list-item-content>
                 <v-list-item-title align="left">{{k.text}}</v-list-item-title>
@@ -46,6 +54,15 @@
 
 <style scoped>
     .result-list {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .result-header {
+        font-size: 18px;
+        color: #061621;
+        display: inline-grid;
+        font-weight: bold;
         padding-top: 0;
         padding-bottom: 0;
     }

@@ -2,7 +2,7 @@
     <v-card flat min-height="600" class="result-card">
         <v-card-title class="result-card-title">{{searchLabel}}</v-card-title>
         <v-card-text class="result-card-text">
-            <v-text-field @keyup.enter.native="addTermEvent" v-model="eventData" class="result-text-field" outlined :label="searchLabel" prepend-inner-icon="search"/>
+            <v-text-field @keyup.enter.native="addTermEvent" v-model="eventData" outlined :label="searchLabel" prepend-inner-icon="search"/>
         </v-card-text>
         <v-list max-height="400" v-scroll dense subheader class="result-list">
             <div v-if="loading">

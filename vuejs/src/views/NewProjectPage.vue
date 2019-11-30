@@ -10,7 +10,7 @@
                 </v-row>
                 <v-row>
                     <v-col v-for="term in this.searchTerms" :key="term">
-                        <v-btn min-width="100" outlined x-small @click="removeTerm(term)" color="#13AA52">
+                        <v-btn class="term-button" min-width="100" outlined x-small @click="removeTerm(term)">
                             {{term}} <v-icon x-small dense>clear</v-icon>
                         </v-btn>
                     </v-col>
@@ -78,7 +78,6 @@
     import TaskSearch from '@/components/project/TaskSearch'
     import InspectData from '@/components/project/InspectData'
     import {StitchServices} from '@/plugins/StitchPlugin'
-
     import {mapState} from 'vuex'
 
     export default {
@@ -113,11 +112,9 @@
         methods: {
             removeTerm(term){
                 this.$store.dispatch('projects/updateTerms', {action: 'REMOVE', term: term})
+
+
             },
-            /*
-             * TODO: need to sort out how to handle more than one case
-             *  $searchBeta must be first
-             */
             runSearch(){
                 if(this.searchTermsChanged) {
                     StitchServices.client.callFunction(
@@ -178,7 +175,7 @@
 
 <style scoped>
     .menu-column {
-        background-color: rgba(231,238,236,0.5);
+
         padding: 0;
     }
 
@@ -192,5 +189,11 @@
     }
     .inspect-btn {
         color: white;
+    }
+
+    .term-button {
+        text-transform: none;
+        background-color: #E1F2F6;
+        color: #1A567E;
     }
 </style>
