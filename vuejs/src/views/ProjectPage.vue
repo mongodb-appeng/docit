@@ -1,82 +1,86 @@
 <template>
     <v-container class="grey lighten-5" fluid>
-    <v-row no-gutters>
-        <v-col v-if="this.showEmail" :cols="9">
-            <EmailPane :email="this.results[this.idx]" :closeEmail="this.showSearch"/>
-        </v-col>
-        <v-col v-else :cols="9">
-            <v-row no-gutters>
-                <v-row dense no-gutters><h1>{{this.project.name}}</h1></v-row>
-            </v-row>
-            <v-row dense no-gutters>
-                <h5 class="status-header">status: {{this.project.status}}</h5>
-            </v-row>
-            <v-row>
-                <br/>
-            </v-row>
-            <v-row>
-                <v-divider/>
-            </v-row>
-            <v-row>
-                <br/>
-            </v-row>
-            <v-row  v-for="(result, i) in this.results" :key="i" dense>
-                <v-card outlined class="mx-auto" max-width="1000" :key="i" @click="showCurrentEmail(i)">
-                    <div class="d-flex">
-                        <v-avatar class="ma-2" size="150" tile>
-                            <v-img src="@/assets/email.svg"></v-img>
-                        </v-avatar>
-                        <v-row>
-                            <div class="overline ma-2">tag: {{result.tag}}</div>
-                            <v-card-title class="headline">{{result.name}}</v-card-title>
-                            <v-card-subtitle>author: {{result.author}}</v-card-subtitle>
-                        </v-row>
-                        <v-card-text class="text-truncate">{{result.emailData.body}}</v-card-text>
-                        <v-avatar class="ma-2 progress" tile size="100">
-                            <v-progress-circular color="blue lighten-2" :value="Math.floor(result.score) + 40">
-                                {{Math.floor(result.score) + 40}}
-                            </v-progress-circular>
-                        </v-avatar>
-                    </div>
-                </v-card>
-            </v-row>
-        </v-col>
-        <v-col :cols="3" class="menu-column" align="center">
-            <v-container class="menu-container">
-                <h1 class="menu-header" v-text="this.project.name"/>
-                <br/>
-                <br/>
-                <v-divider/>
-                <v-container>
-                    <p class="menu-text title">Current Documents</p>
-                    <p class="menu-text title">1 - 10</p>
-                    <p/>
+        <v-row no-gutters>
+            <v-col v-if="this.showEmail" :cols="9">
+                <EmailPane :email="this.results[this.idx]" :closeEmail="this.showSearch"/>
+            </v-col>
+            <v-col v-else :cols="9">
+                <v-row no-gutters>
+                    <v-row dense no-gutters><h1>{{this.project.name}}</h1></v-row>
+                </v-row>
+                <v-row dense no-gutters>
+                    <h5 class="status-header">status: {{this.project.status}}</h5>
+                </v-row>
+                <v-row>
+                    <br/>
+                </v-row>
+                <v-row>
+                    <v-divider/>
+                </v-row>
+                <v-row>
+                    <br/>
+                </v-row>
+                <v-row v-if="this.pageLoading">
+                    <v-col align="center" cols="12"><pulse-loader/></v-col>
+                </v-row>
+                <v-row v-else v-for="(result, i) in this.results" :key="i" dense>
+                    <v-card outlined class="mx-auto" max-width="1000" :key="i" @click="showCurrentEmail(i)">
+                        <div class="d-flex">
+                            <v-avatar class="ma-2" size="150" tile>
+                                <v-img src="@/assets/email.svg"></v-img>
+                            </v-avatar>
+                            <v-row>
+                                <div class="overline ma-2">tag: {{result.tag}}</div>
+                                <v-card-title class="headline">{{result.name}}</v-card-title>
+                                <v-card-subtitle>author: {{result.author}}</v-card-subtitle>
+                            </v-row>
+                            <v-card-text class="text-truncate">{{result.emailData.body}}</v-card-text>
+                            <v-avatar class="ma-2 progress" tile size="100">
+                                <v-progress-circular color="blue lighten-2" :value="Math.floor(result.score) + 40">
+                                    {{Math.floor(result.score) + 40}}
+                                </v-progress-circular>
+                            </v-avatar>
+                        </div>
+                    </v-card>
+                </v-row>
+            </v-col>
+            <v-col :cols="3" class="menu-column" align="center">
+                <v-container class="menu-container">
+                    <h1 class="menu-header" v-text="this.project.name"/>
+                    <br/>
+                    <br/>
+                    <v-divider/>
+                    <v-container>
+                        <p class="menu-text title">Current Documents</p>
+                        <p class="menu-text title">1 - 10</p>
+                        <p/>
+                    </v-container>
+                    <v-divider/>
+                    <v-container>
+                        <p/>
+                        <div v-if="this.showEmail">
+                            <v-btn large min-width="245" @click="this.showSearch">Close Preview</v-btn>
+                        </div>
+                        <div v-else>
+                            <v-btn large min-width="245" disabled>Close Preview</v-btn>
+                        </div>
+                    </v-container>
                 </v-container>
-                <v-divider/>
-                <v-container>
-                    <p/>
-                    <div v-if="this.showEmail">
-                        <v-btn large min-width="245" @click="this.showSearch">Close Preview</v-btn>
-                    </div>
-                    <div v-else>
-                        <v-btn large min-width="245" disabled>Close Preview</v-btn>
-                    </div>
-                </v-container>
-            </v-container>
-        </v-col>
-    </v-row>
-    <!-- old page -->
+            </v-col>
+        </v-row>
     </v-container>
 </template>
 
 <script>
     import EmailPane from '@/components/project/EmailPane'
     import {StitchServices} from '@/plugins/StitchPlugin'
+    import PulseLoader from 'vue-spinner/src/PulseLoader'
 
     export default {
         name: 'ProjectPage',
         components: {
-            EmailPane
+            EmailPane,
+            PulseLoader
         },
         props: [
             'caseid',
@@ -93,7 +97,6 @@
         },
         created() {
             this.getProject()
-            this.pageLoading = false
         },
         methods: {
             showSearch(){
@@ -109,7 +112,6 @@
                     .then(doc => {
                         this.project = doc
                         this.runSearch(this.project.searchTerms)
-                        this.pageLoading = false
                     })
             },
             runSearch(terms) {
@@ -150,6 +152,7 @@
                         }
                     }
                     this.results = result.result
+                    this.pageLoading = false
                 })
             }
         }
