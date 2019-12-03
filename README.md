@@ -1,5 +1,7 @@
 # Docit
 
+![overview](./images/overview.png)
+
 Docit is a single page web search and classification application written in javascript using the [Vue.js](https://vuejs.org/)
 frameworks, [hosted](https://docs.mongodb.com/stitch/hosting/) on the [MongoDB Atlas data platform](https://docs.atlas.mongodb.com/)
 making use of [full text search](https://docs.atlas.mongodb.com/full-text-search/),
