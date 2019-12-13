@@ -27,9 +27,9 @@
     "vuex-persistedstate": "^2.6.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.0.0",
-    "@vue/cli-plugin-eslint": "^4.0.0",
-    "@vue/cli-service": "^4.0.0",
+    "@vue/cli-plugin-babel": "^4.1.1",
+    "@vue/cli-plugin-eslint": "^4.1.1",
+    "@vue/cli-service": "^4.1.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
@@ -65,13 +65,34 @@
     "last 2 versions"
   ],
   "contributors": [
-    {"name": "Andrew Morgan", "email":  "andrew.morgan@mongodb.com"},
-    {"name": "Avery Rosen", "email":  "avery.rosen@mongodb.com"},
-    {"name": "Dave McCarter", "email":  "dave.mccarter@mongodb.com"},
-    {"name": "Diana Esteves", "email":  "diana.esteves@mongodb.com"},
-    {"name": "Mike Waltzer", "email":  "mike.waltzer@mongodb.com"},
-    {"name": "Ralph Capasso", "email":  "ralph.capasso@mongodb.com"},
-    {"name": "Shawn McCarthy", "email":  "shawn.mccarthy@mongodb.com"}
+    {
+      "name": "Andrew Morgan",
+      "email": "andrew.morgan@mongodb.com"
+    },
+    {
+      "name": "Avery Rosen",
+      "email": "avery.rosen@mongodb.com"
+    },
+    {
+      "name": "Dave McCarter",
+      "email": "dave.mccarter@mongodb.com"
+    },
+    {
+      "name": "Diana Esteves",
+      "email": "diana.esteves@mongodb.com"
+    },
+    {
+      "name": "Mike Waltzer",
+      "email": "mike.waltzer@mongodb.com"
+    },
+    {
+      "name": "Ralph Capasso",
+      "email": "ralph.capasso@mongodb.com"
+    },
+    {
+      "name": "Shawn McCarthy",
+      "email": "shawn.mccarthy@mongodb.com"
+    }
   ],
   "keywords": [
     "mongodb",
